@@ -1,0 +1,20 @@
+package com.how2java.projectname.exception;
+
+
+import javax.servlet.http.HttpServletRequest;
+
+import org.springframework.web.bind.annotation.ControllerAdvice;
+import org.springframework.web.bind.annotation.ExceptionHandler;
+import org.springframework.web.bind.annotation.RestController;
+
+@RestController
+@ControllerAdvice
+public class GloabalExceptionHandler {
+    @ExceptionHandler(value = Exception.class)
+    public String defaultErrorHandler(HttpServletRequest req, Exception e) throws Exception {
+    	e.printStackTrace();
+        return e.getMessage();
+    }
+
+}
+
